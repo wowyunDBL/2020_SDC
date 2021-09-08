@@ -1,38 +1,52 @@
-# 2020_SDC
+# 2020_Self Driving Car
+This is the homework repository for Self Driving Car.
 
-### set parameter in this way
-```cpp
-int main(int argc, char **argv)
-{
-	ros::init(argc, argv, "easy_node");
-	bool flag = false;
-	for (int i = 1; i < argc; i++) 
-	{
-	    std::string filename = std::string(argv[i]);
-	    if (filename == "ITRI_Private_1") {
-	        Localize lObj("ITRI_Private_1", 3.14);
-	        flag = true;
-	    }
-	    else if (filename == "ITRI_Private_2") {
-	        Localize lObj("ITRI_Private_2", 2.355);
-	        flag = true;
-        }
-	    else if (filename == "ITRI_Private_3") {
-	        Localize lObj("ITRI_Private_3", 1.57);
-	        flag = true;
-        }
-	    else if (filename == "ITRI_Public") {
-	        Localize lObj("ITRI_Public", 0);
-	        flag = true;
-	    }
-	}
-	if (flag == false) {
-	    std::cout << "usage: rosrun easy easy_node BAGNAME [BAGNAME ...]\n";
-	    std::cout << "*** Please DON'T ADD .bag behind the bag name! ***\n";
-	    std::cout << "*** BAGNAME: ITRI_Public/ITRI_Private_1/ITRI_Private_1/ITRI_Private_3 ***\n";
-	}
+## HW1-Introduction
 
-	return 0;
-}
+## HW2-Probability
+### Reference
+* ProbRobotics
+    * ch1 Introduction
+        * key word: Markow localization、Bayes filter
+    * ch2 Recursive State Estimation
+        * key word: dynamic Bayes network
+	* ch7 Recursive State Estimation
+        * key word: Markov Localization
 
-```
+## HW3-Visualization Fusion Trajectory
+### key point 
+* [hw3 requirement](https://github.com/wowyunDBL/2020_SDC/blob/master/hw3_0511009/Assignment3_IMU.pdf)
+* [An introduction to inertial navigation](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf)
+* Use the angular velocity and linear acceleration to draw a path.
+
+## HW4-Tracking
+### key point 
+* [hw4 requirement](https://github.com/wowyunDBL/2020_SDC/blob/master/hw4/hw4_0511009/Assignment%204.pdf)
+* Use EKF to do sensor fusion 
+* Visual odometry:以影像作為input，經過影響處理，還原相機在拍時的位移、旋轉
+* Transformation imu frame to zed odom frame
+* Red:visual odem、Green:EKF、Blue:Imu
+![image](https://github.com/wowyunDBL/2020_SDC/blob/master/images/hw4.png)
+
+## Competition
+### Midterm-Localization
+#### key point 
+* using C++ language
+* ICP (iterative_closet_point)
+input point cloud map(.pcd) as target cloud of ICP
+* TF (transform)
+* load and save file
+* [self-practice with code explanation tutorial]
+#### Reference
+* 3D Point Cloud Processing and Learning for Autonomous Driving
+![image](https://github.com/wowyunDBL/2020_SDC/blob/master/images/mid.png)
+
+### Final
+#### key point 
+* using python language
+* tracking and forecasting using argo-dataset with on-line baseline
+* draw bounding box and distinguish different class
+#### Reference 
+* Probabilistic 3D Multi-Object Tracking for Autonomous Driving
+[video link](https://www.youtube.com/watch?v=BZEGhJdUKMM)
+![image](https://github.com/wowyunDBL/2020_SDC/blob/master/images/final.png)
