@@ -1,6 +1,22 @@
 # 2020_Self Driving Car
 This is the homework repository for Self Driving Car.
 
+## Code Implementation
+/* Build packages */
+$ cd $(CATKIN_WS)
+$ catkin_make
+$ source devel/setup.bash
+$ rosrun localizer localization_node
+
+/* Play rosbag */
+$ rosparam set use_sim_time true
+$ rosbag play -r 0.1 {challenge}.bag --clock
+
+/* Rviz topic */
+frame: map
+topic: sensor_map
+topic: sensor_scan
+
 ## HW1-Introduction
 
 ## HW2-Probability
@@ -39,6 +55,7 @@ input point cloud map(.pcd) as target cloud of ICP
 * [self-practice with code explanation tutorial]
 #### Reference
 * 3D Point Cloud Processing and Learning for Autonomous Driving
+* [See code detail](https://github.com/wowyunDBL/2020_SDC/blob/master/mid/README.md)
 ![image](https://github.com/wowyunDBL/2020_SDC/blob/master/images/mid.png)
 
 ### Final
