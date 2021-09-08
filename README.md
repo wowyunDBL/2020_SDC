@@ -3,19 +3,25 @@ This is the homework repository for Self Driving Car.
 
 ## Code Implementation
 /* Build packages */
+```sh
 $ cd $(CATKIN_WS)
 $ catkin_make
 $ source devel/setup.bash
 $ rosrun localizer localization_node
+```
 
 /* Play rosbag */
+```sh
 $ rosparam set use_sim_time true
 $ rosbag play -r 0.1 {challenge}.bag --clock
+```
 
 /* Rviz topic */
+```sh
 frame: map
 topic: sensor_map
 topic: sensor_scan
+```
 
 ## HW1-Introduction
 
